@@ -2759,8 +2759,8 @@
       </email>
     </tsar>
     <web>http://bratislava.pm.org/</web>
-    <date type="inception">19990607</date>
     <facebook>http://www.facebook.com/groups/bratislava.pm.org/</facebook>
+    <date type="inception">19990607</date>
   </group>
   <group id="122" status="active">
     <name>Bristol.pm</name>
@@ -6697,6 +6697,10 @@
       <longitude>-118.499219</longitude>
       <latitude>34.015987</latitude>
     </location>
+    <email type="group">
+      <user>losangeles-pm</user>
+      <domain>pm.org</domain>
+    </email>
     <tsar>
       <name>Andrew Grangaard</name>
       <email type="personal">
@@ -6705,13 +6709,9 @@
       </email>
     </tsar>
     <web>http://la.pm.org/</web>
-    <date type="inception"></date>
-    <email type="group">
-      <user>losangeles-pm</user>
-      <domain>pm.org</domain>
-    </email>
     <facebook>http://www.facebook.com/groups/119158178096277/</facebook>
     <linkedin>http://www.linkedin.com/groups?gid=2804627</linkedin>
+    <date type="inception"></date>
   </group>
   <group id="306" status="undef">
     <name>Erie.pm</name>
@@ -11046,8 +11046,8 @@
       <region></region>
       <country>United States of America</country>
       <continent>North America</continent>
-      <latitude>40.75</latitude>
       <longitude>-111.88</longitude>
+      <latitude>40.75</latitude>
     </location>
     <tsar>
       <name>David Oswald</name>
@@ -11401,8 +11401,8 @@
       <region>Devon &amp; Cornwall</region>
       <country>United Kingdom</country>
       <continent>Europe</continent>
-      <latitude>50.7384</latitude>
       <longitude>-4.0042</longitude>
+      <latitude>50.7384</latitude>
     </location>
     <tsar>
       <name>Steve Marvell</name>
@@ -11556,7 +11556,7 @@
     <web>http://lyon.pm.org/</web>
     <mailing_list>
       <name>General Lyon Perl Mongers discussion</name>
-      <email type="list">lyon-pm.org</email>
+      <email type="list"><!--lyon-pm.org--></email>
       <email type="list_admin">
         <user>jquelin</user>
         <domain>gmail.com</domain>
@@ -11587,7 +11587,7 @@
     <mailing_list>
       <name>General indiantrail-pm.org Perl Mongers
       discussion</name>
-      <email type="list">indiantrail-pm.org</email>
+      <email type="list"><!--indiantrail-pm.org--></email>
       <email type="list_admin">
         <user>skhan</user>
         <domain>carolinas.org</domain>
@@ -11621,7 +11621,7 @@
         <user>belgian-pm</user>
         <domain>pm.org</domain>
       </email>
-      <email type="list_admin">Geert Theys</email>
+      <email type="list_admin"><!--Geert Theys--></email>
     </mailing_list>
     <date type="inception">20020205</date>
   </group>
@@ -13240,8 +13240,8 @@
       <region>Southwest Missouri</region>
       <country>United States of America</country>
       <continent>North America</continent>
-      <latitude>37.2089</latitude>
       <longitude>-93.2922</longitude>
+      <latitude>37.2089</latitude>
     </location>
     <email type="group"></email>
     <tsar>
@@ -15890,8 +15890,8 @@
       <region></region>
       <country>Israel</country>
       <continent>Asia</continent>
-      <latitude>31.750795</latitude>
       <longitude>35.190926</longitude>
+      <latitude>31.750795</latitude>
     </location>
     <email type="group"></email>
     <tsar>
@@ -16432,7 +16432,6 @@
   </group>
   <group id="665" status="inactive">
     <name>#Perl.pm</name>
-    <web>http://pound-perl.pm.org/</web>
     <location>
       <city></city>
       <state></state>
@@ -16446,6 +16445,7 @@
       <name></name>
       <email type="personal"></email>
     </tsar>
+    <web>http://pound-perl.pm.org/</web>
   </group>
   <group id="666" status="active">
     <name>Erlangen.pm</name>
@@ -18372,8 +18372,8 @@
       </email>
     </tsar>
     <web>http://brno.pm.org</web>
-    <date type="inception">20110323</date>
     <facebook>http://www.facebook.com/brnopm</facebook>
+    <date type="inception">20110323</date>
   </group>
   <group id="755" status="active">
     <name>Logan.pm</name>
