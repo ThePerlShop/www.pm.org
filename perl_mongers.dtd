@@ -12,6 +12,7 @@
 	(email)*, 
 	tsar+,
 	web,
+	( meetup | facebook | linkedin | twitter | googleplus )*,
 	(mailing_list)*,
 	(date)*
 	)
@@ -42,29 +43,46 @@
 <!ELEMENT tsar 
 	(
 	name,
-	email
+	email,
+	(pause_id)?
 	)
 	>
 
 <!ELEMENT mailing_list 
 	(
 	name,
-	(email)+,
-	subscribe,
-	unsubscribe
+	(email)*,
+	(subscribe)?,
+	(unsubscribe)?
 	)
 	>
-	
+
+<!ELEMENT email 
+	((
+	user,
+	domain
+	)?)
+	>
+<!ATTLIST email	type (group | personal | list | list_admin) "group">
+
+<!ELEMENT user		(#PCDATA)>
+<!ELEMENT domain	(#PCDATA)>
+
 <!ELEMENT name		(#PCDATA)>
+<!ELEMENT pause_id	(#PCDATA)>
+
 <!ELEMENT web		(#PCDATA)>
+<!ELEMENT meetup	(#PCDATA)>
+<!ELEMENT facebook	(#PCDATA)>
+<!ELEMENT linkedin	(#PCDATA)>
+<!ELEMENT twitter	(#PCDATA)>
+<!ELEMENT googleplus	(#PCDATA)>
+
 <!ELEMENT subscribe	(#PCDATA)>
 <!ELEMENT unsubscribe	(#PCDATA)>
-	
+
 <!ELEMENT date		(#PCDATA)>
 <!ATTLIST date		type (inception | next_meeting | misc) "misc">
-
-<!ELEMENT email	(#PCDATA)>
-<!ATTLIST email	type (group | personal | list | list_admin) "group">
 
 <!ENTITY agrave '&#224;' >
 <!ENTITY aacute	'&#225;' >
