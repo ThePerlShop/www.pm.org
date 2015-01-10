@@ -20,6 +20,7 @@ sub main {
     open my $xml_outfh, '>', $xml_outfile
         or die "$0: cannot open '$xml_outfile' for output: $!\n";
     binmode $xml_outfh;
+    local $XML::LibXML::setTagCompression = 1;
     $doc->toFH($xml_outfh);
     close $xml_outfh;
 }
