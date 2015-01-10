@@ -5,23 +5,54 @@
 use strict;
 use warnings;
 
-use XML::LibXML;
+use Getopt::Long ();
+use XML::LibXML ();
 
-main();
+main(\@ARGV);
+
+
+sub get_options {
+    my ($args) = @_;
+
+    my %options = (
+        infile => 'perl_mongers.xml',
+        outfile => 'perl_mongers-out.xml',
+    );
+
+    Getopt::Long::GetOptionsFromArray(
+        $args => \%options,
+        'infile|i=s',
+        'outfile|o=s',
+    );
+
+    return \%options;
+}
+
+
+sub read_xml_doc {
+    my ($infile) = @_;
+    return XML::LibXML->new->parse_file($infile);
+}
+
+sub write_xml_doc {
+    my ($outfile, $doc) = @_;
+
+    open my $outfh, '>', $outfile
+        or die "$0: cannot open '$outfile' for output: $!\n";
+    binmode $outfh;
+    local $XML::LibXML::setTagCompression = 1;
+    $doc->toFH($outfh);
+    close $outfh;
+}
 
 
 sub main {
-    my $xml_infile = 'perl_mongers.xml';
-    my $xml_outfile = 'perl_mongers-out.xml';
+    my ($args) = @_;
 
-    my $xml = XML::LibXML->new();
-    my $doc = $xml->parse_file($xml_infile);
+    my $options = get_options($args);
 
-    open my $xml_outfh, '>', $xml_outfile
-        or die "$0: cannot open '$xml_outfile' for output: $!\n";
-    binmode $xml_outfh;
-    local $XML::LibXML::setTagCompression = 1;
-    $doc->toFH($xml_outfh);
-    close $xml_outfh;
+    my $doc = read_xml_doc($options->{infile});
+
+    write_xml_doc($options->{outfile}, $doc);
 }
 
