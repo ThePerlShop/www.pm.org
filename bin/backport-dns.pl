@@ -29,12 +29,12 @@ sub get_options {
 }
 
 
-sub read_xml_doc {
+sub doc_parse_file {
     my ($infile) = @_;
     return XML::LibXML->new->parse_file($infile);
 }
 
-sub write_xml_doc {
+sub doc_write_file {
     my ($outfile, $doc) = @_;
 
     open my $outfh, '>', $outfile
@@ -45,14 +45,47 @@ sub write_xml_doc {
     close $outfh;
 }
 
+sub doc_groups_by_short_name {
+    my ($doc) = @_;
+
+    my %groups;
+    my %group_counts;
+
+    my $group_nodes = $doc->findnodes('/perl_mongers/group');
+
+    NODE: for my $node ($group_nodes->get_nodelist) {
+        my $name = $node->find('./name')->get_node(1)->textContent;
+
+        if ($name !~ m/^([^\.]+)\.pm$/) {
+            warn "$0: group '$name' does not appear to be a real PM group name; ignoring\n";
+            next NODE;
+        }
+
+        my $short_name = lc($1);
+
+        my $group_count = ( ++ $group_counts{$short_name} );
+        if ($group_count > 1) {
+            warn "$0: group '$name' duplicated; ignoring all\n" if $group_count == 2;
+            delete $groups{$short_name};
+            next NODE;
+        }
+
+        $groups{$short_name} = $node;
+    }
+
+    return \%groups;
+}
+
 
 sub main {
     my ($args) = @_;
 
     my $options = get_options($args);
 
-    my $doc = read_xml_doc($options->{infile});
+    my $doc = doc_parse_file($options->{infile});
 
-    write_xml_doc($options->{outfile}, $doc);
+    my $groups = doc_groups_by_short_name($doc);
+
+    doc_write_file($options->{outfile}, $doc);
 }
 
