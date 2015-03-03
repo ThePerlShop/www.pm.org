@@ -9,12 +9,13 @@
 	(
 	name, 
 	location, 
-	(email)*, 
+	email*, 
 	tsar+,
 	web,
 	( meetup | facebook | linkedin | twitter | googleplus )*,
-	(mailing_list)*,
-	(date)*
+	mailing_list*,
+	date*,
+	dns?
 	)
 	>
 <!ATTLIST group		id CDATA #REQUIRED>
@@ -83,6 +84,12 @@
 
 <!ELEMENT date		(#PCDATA)>
 <!ATTLIST date		type (inception | next_meeting | misc) "misc">
+
+<!ELEMENT dns		(cname | a | mx)*>
+<!ELEMENT cname		(#PCDATA)>
+<!ELEMENT a			(#PCDATA)>
+<!ELEMENT mx		(#PCDATA)>
+<!ATTLIST mx		priority CDATA "10">
 
 <!ENTITY agrave '&#224;' >
 <!ENTITY aacute	'&#225;' >
