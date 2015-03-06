@@ -56,6 +56,23 @@ sub get_options {
 }
 
 
+sub show_help {
+    print <<"END_HELP";
+Usage: $0 [options]
+
+Options:
+  --help -h  Show this usage message.
+  --verbose -v  Display debug or trace messages.
+      Multiple -v options increases verbosity.
+  --quiet -q  Disable even normal warnings.
+  --infile -i  Specify the XML input file (default perl_mongers.xml).
+  --outfile -o  Specify the XML output file (default perl_mongers-out.xml).
+  --zonefile -z  Specify the DNS zone file (default dns.txt).
+
+END_HELP
+}
+
+
 sub doc_parse_file {
     my ($xml_infile) = @_;
     log_debug("reading XML from '$xml_infile'");
@@ -187,7 +204,7 @@ sub main {
 
     my $options = get_options($args);
 
-    # return show_help() if $options->{help};
+    return show_help() if $options->{help};
 
     if ($options->{quiet}) {
         $verbosity = -1;
