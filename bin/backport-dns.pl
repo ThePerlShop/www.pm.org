@@ -76,7 +76,7 @@ END_HELP
 sub doc_parse_file {
     my ($xml_infile) = @_;
     log_debug("reading XML from '$xml_infile'");
-    return XML::LibXML->new->parse_file($xml_infile);
+    return XML::LibXML->new(no_blanks => 1)->parse_file($xml_infile);
 }
 
 sub doc_write_file {
