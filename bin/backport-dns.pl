@@ -167,7 +167,7 @@ sub groups_parse_dns {
             next DNS_RR;
         }
 
-        if (! m[^(\S+)\s+(A|CNAME|MX)\s+(.+)$]) {
+        if (! m[^(\S+)\s+(A|AAAA|CNAME|MX)\s+(.+)$]) {
             log_warn("unrecognized zone data line $INPUT_LINE_NUMBER: $_");
             next DNS_RR;
         }
@@ -190,6 +190,14 @@ sub groups_parse_dns {
 
             my $a_node = $doc->createElement('a');
             $a_node->addChild( $doc->createTextNode($ip_address) );
+            $dns_node->appendChild($a_node);
+
+        } elsif ($rr_type eq 'AAAA') {
+            my ($ipv6_address) = split(' ', $rr_data);
+            log_trace(2, "adding AAAA for group $name: IPv6 $ipv6_address");
+
+            my $a_node = $doc->createElement('aaaa');
+            $a_node->addChild( $doc->createTextNode($ipv6_address) );
             $dns_node->appendChild($a_node);
 
         } elsif ($rr_type eq 'CNAME') {

@@ -85,9 +85,10 @@
 <!ELEMENT date		(#PCDATA)>
 <!ATTLIST date		type (inception | next_meeting | misc) "misc">
 
-<!ELEMENT dns		(cname | a | mx)*>
-<!ELEMENT cname		(#PCDATA)>
+<!ELEMENT dns		(a | aaaa | cname | mx)*>
 <!ELEMENT a			(#PCDATA)>
+<!ELEMENT aaaa		(#PCDATA)>
+<!ELEMENT cname		(#PCDATA)>
 <!ELEMENT mx		(#PCDATA)>
 <!ATTLIST mx		priority CDATA "10">
 
