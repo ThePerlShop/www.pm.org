@@ -21,6 +21,25 @@ pm.org.			5m	MX	10 xx1.develooper.com.
 *.n		1h	A	207.171.7.133
 *.redirects	1h	A	207.171.7.133
 *.ruhr			CNAME	ruhr-pm.wahlich.com.
+
+mail.n		1h	A	207.171.7.86
+mail		1h	A	207.171.7.86
+mail		1h	MX	0 mx.develooper.com.
+
+;; is this still used/needed?
+lists		20m	MX	10 mx.panix.com.
+
+localhost		A	127.0.0.1
+
+www			A	207.171.7.133
+www			MX	10 mx.develooper.com.
+
+
+;<<<
+; The following lines are auto-generated.
+; Do not modify the text between the delimiters.
+; Your changes will not be preserved.
+
 aarau			A	207.171.7.133
 abe			CNAME	abe-pm.manxome.org.
 aberdeen		A	207.171.7.133
@@ -28,8 +47,6 @@ adelaide		A	72.14.189.53
 advent			CNAME   advent.redirects
 albany			CNAME	albany-pm.github.io.
 albuquerque		A	207.171.7.133
-amsterdam	1d	NS	ns.xs4all.nl.
-amsterdam	1d	NS	ns2.xs4all.nl.
 amsterdamx		A	207.171.7.133
 annarbor		A	207.171.7.133
 argentina		A	207.171.7.133
@@ -196,15 +213,7 @@ linz			A       188.40.80.22
 linz			AAAA    2a01:4f8:100:5404::2
 lisboa			CNAME	lisbon
 
-;; is this still used/needed?
-lists		20m	MX	10 mx.panix.com.
-
-localhost		A	127.0.0.1
 logan			A	207.171.7.133
-london		1d	NS	ns0.colondot.net.
-london		1d	NS	ns0.exonetric.net.
-london		1d	NS	ns1.exonetric.net.
-london		1d	NS	ns1.realprogrammers.com.
 los-angeles		CNAME	losangeles
 losangeles		A	207.171.7.133
 lukavac			CNAME   lukavac.redirects
@@ -213,9 +222,6 @@ madison			CNAME	madison.redirects
 madras			A	207.171.7.133
 madrid			CNAME	madridpm.freekeylabs.com.
 madurai			A	207.171.7.133
-mail.n		1h	A	207.171.7.86
-mail		1h	A	207.171.7.86
-mail		1h	MX	0 mx.develooper.com.
 maine			A	207.171.7.133
 makati			A	199.188.72.101
 marseille		CNAME	marseille.redirects
@@ -239,8 +245,6 @@ neworleans		A	208.74.120.13
 newtaipeicity		A	207.171.7.133
 niederrhein		CNAME	perl.community.cloudssus.net.
 niigata			A	207.171.7.133
-nl		1d	NS	ns.xs4all.nl.
-nl		1d	NS	ns2.xs4all.nl.
 nordest			A	216.92.17.197
 nordrhein		A	207.171.7.133
 northwestengland 	A	207.171.7.133
@@ -311,7 +315,6 @@ sancristobal    	A   216.75.63.70
 sandiego		A	69.43.195.46
 sanfrancisco		CNAME	sfpm.redhotpenguin.com.
 santafelosalamos 	A	207.171.7.133
-santiago		NS	comunidad.codigolibre.cl.
 sp			CNAME	sao-paulo.redirects
 sao-paulo		A	69.64.46.143
 seoul			A	211.234.100.190
@@ -338,13 +341,8 @@ southampton		CNAME	southampton-pm.github.io.
 spb			CNAME	st-petersburg
 st-anna			A	207.171.7.133
 st-petersburg		A	192.241.212.86
-sthlm		1d	NS	terminal.2globe.net.
-sthlm		1d	NS	vic20.blipp.com.
 stlouis			CNAME	ghs.google.com.
 stockholm		CNAME	vic20.blipp.com.
-stuttgart	1d	NS      ns1.nepustil.net.
-stuttgart	1d      NS      ns.opsec.eu.
-stuttgart	1d      NS      ns.nepustil.com.
 swindon			CNAME	swindonpm.perlportal.com.
 sydney			A	207.171.7.133
 sydney			MX	10 mx.develooper.com.
@@ -387,16 +385,40 @@ westernmontana		A	207.171.7.133
 weston			A	174.143.233.162
 whiteplains		A	207.171.7.133
 wiki.oslo		A	193.142.30.140
-www			A	207.171.7.133
 www.classiccity		CNAME	classiccity
 www.devoncornwall 	CNAME	devoncornwall
 www.lisbon		CNAME	lisbon
-www			MX	10 mx.develooper.com.
 www.sandiego		CNAME	sandiego
 yokohama		A	219.94.245.94
 za			A	207.171.7.133
 zagreb			A	207.171.7.133
 zurich			A	207.171.7.133
+
+;>>>
+
+
+; grandfathered entries
+
+amsterdam	1d	NS	ns.xs4all.nl.
+amsterdam	1d	NS	ns2.xs4all.nl.
+
+london		1d	NS	ns0.colondot.net.
+london		1d	NS	ns0.exonetric.net.
+london		1d	NS	ns1.exonetric.net.
+london		1d	NS	ns1.realprogrammers.com.
+
+nl		1d	NS	ns.xs4all.nl.
+nl		1d	NS	ns2.xs4all.nl.
+
+santiago		NS	comunidad.codigolibre.cl.
+
+sthlm		1d	NS	terminal.2globe.net.
+sthlm		1d	NS	vic20.blipp.com.
+
+stuttgart	1d	NS      ns1.nepustil.net.
+stuttgart	1d      NS      ns.opsec.eu.
+stuttgart	1d      NS      ns.nepustil.com.
+
 _jabber._tcp.dahut 	SRV	5 0 5269 orb.x4.net.
 _jabber._tcp.lisbon 	SRV	5 0 5269 xmpp-server.l.google.com.
 _xmpp-client._tcp.dahut		SRV	5 0 5222 orb.x4.net.

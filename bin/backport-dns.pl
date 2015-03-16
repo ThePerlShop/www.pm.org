@@ -124,6 +124,7 @@ sub doc_groups_by_short_name {
 }
 
 
+# returns the <dns> node from within a group node, creating if necessary
 sub group_dns_node {
     my ($group) = @_;
 
@@ -148,15 +149,34 @@ sub groups_parse_dns {
     DNS_RR: while (<$zone_infh>) {
         chomp;
 
+        # skip all the lines before the punch-in delimiter and after the punch-out delimiter
+        unless (m/^;<<</ .. m/^;>>>/) {
+            log_trace(3, "skipping zone data line $INPUT_LINE_NUMBER (outside of delimiters)");
+            next DNS_RR;
+        }
+
+        # skip comments
+        if (m/^;/) {
+            log_trace(3, "skipping zone data line $INPUT_LINE_NUMBER (comment line)");
+            next DNS_RR;
+        }
+
+        # skip blank lines
+        if (m/^\s*$/) {
+            log_trace(3, "skipping zone data line $INPUT_LINE_NUMBER (blank line)");
+            next DNS_RR;
+        }
+
         if (! m[^(\S+)\s+(A|CNAME|MX)\s+(.+)$]) {
-            log_trace(3, "skipping zone data line $INPUT_LINE_NUMBER");
+            log_warn("unrecognized zone data line $INPUT_LINE_NUMBER: $_");
             next DNS_RR;
         }
         my ($name, $rr_type, $rr_data) = ($1, $2, $3);
+        $name = lc $name;
         log_trace(3, "found $rr_type RR for $name at line $INPUT_LINE_NUMBER");
 
         if (! exists $groups->{$name}) {
-            log_trace(3, "unknown group $name; skipping");
+            log_warn("unknown group $name; skipping, zone data line $INPUT_LINE_NUMBER");
             next DNS_RR;
         }
         my $group = $groups->{$name};
